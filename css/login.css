@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: linear-gradient(rgb(0,0,0,0.6), rgb(0,0,0,0.3)), url('../bg-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.346);
+    position: fixed;
+}
+
+.navbar .logo-text a {
+    text-decoration: none;
+}
+
+.navbar .logo-text a h3{
+    color: #fff;
+    font-family: Tahoma;
+}
+
+.navbar .nav-link ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-link ul a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar .nav-link ul a:hover {
+    background: lightgrey;
+    color: #000;
+    text-decoration: double;
+}
+
+.navbar .nav-link ul a li {
+    margin: 18px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+    height: 325px;
+    padding: 30px 50px;
+    border-radius: 10px;
+    width: 467px;
+    color: #fff;
+}
+
+form input {
+    margin: 10px;
+    line-height: 22px;
+    border: none;
+    width: 70%;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border: 3px solid green;
+  outline: none;
+}
+
+.action-button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button button {
+    margin: 20px;
+    line-height: 22px;
+    padding: 7px;
+    border-radius: 15px;
+    width: 84px;
+    background: none;
+    color: #fff;
+}
+
+.action-button button[type=submit]:hover{
+	background: green;
+}
+
+.action-button button[type=reset]:hover{
+	background: steelblue;
+}
+
+button[type="submit"] {
+  border: 3px solid green;
+  outline: none;
+}
+
+button[type=reset]{
+	border: 2px solid steelblue;
+}
