@@ -1,8 +1,9 @@
 <?php 
-    include_once("../dbcon.php");
+    ob_start();
     session_start();
     // echo($_SESSION['uid']);exit();
 
+    include_once("../dbcon.php");
 
 ?>
 
