@@ -1,3 +1,11 @@
+<?php 
+        ob_start();
+        session_start();
+
+    // echo($_SESSION['uid']);exit();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +70,9 @@
             
             $id = $data['id'];
 
-            echo "id".$id;
+            // echo "id".$id;
 
-            session_start();
+            // session_start();
             
             $_SESSION['id'] = $id;
             header('location:tsa-index.php');

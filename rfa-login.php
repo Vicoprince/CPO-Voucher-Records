@@ -1,4 +1,5 @@
 <?php 
+        ob_start();
         session_start();
 
     // echo($_SESSION['uid']);exit();
@@ -69,12 +70,12 @@
             
             $id = $data['id'];
 
-            echo "id".$id;
+            // echo "id".$id;
 
-            session_start();
+            // session_start();
             
-            $_SESSION['uid'] = $uid;
-            header("location:index.php");
+            $_SESSION['uid'] = $id;
+            exit(header("location:index.php"));
             
 		}
 
