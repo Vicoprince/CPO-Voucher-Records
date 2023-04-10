@@ -87,69 +87,86 @@
                             </tr>
                             <tr>
                                 <th>Beneficiary :</th>
-                                <td><?php echo $data['Beneficiary']; ?></td>
+                                <td><?php echo $data['BENEFICIARY']; ?></td>
                                 <th>Amount:</th>
-                                <td><?php echo $data['Amount']; ?></td>
+                                <td><?php echo $data['AMOUNT']; ?></td>
                             </tr>
                             <tr>
                                 <th>Treasury Number :</th>
-                                <td><?php echo $data['treasury_no']; ?></td>
+                                <td><?php echo $data['treasury no']; ?></td>
                                 <th>Voucher Number :</th>
-                                <td><?php echo $data['voucher_no']; ?></td>
+                                <td><?php echo $data['voucher no']; ?></td>
                             </tr>
-                            <tr>
-                                <th>Reciept Number :</th>
-                                <td><?php echo $data['receipt_no']; ?></td>
-                                <th>Are Receipts Ok :</th>
-                                <td><?php echo $data['are_receipts_ok']; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Is Narration Ok :</th>
-                                <td><?php echo $data['is_narration_ok']; ?></td>
-                                <th>Is Account Changed :</th>
-                                <td><?php echo $data['is_account_changed']; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Batch Number :</th>
-                                <td><?php echo $data['Batch_no']; ?></td>
-                                <th>Are Signatures OK :</th>
-                                <td><?php echo $data['are_signatures_ok']; ?></td>
-                            </tr>
-
                             <tr>
                                 <th>Transaction Type :</th>
-                                <td><?php echo $data['transaction_type']; ?></td>
+                                <td><?php echo $data['transaction type']; ?></td>
+                                <th>Batch Number :</th>
+                                <td><?php echo $data['Batch no']; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Payment Date :</th>
+                                <td><?php echo $data['payment date']; ?></td>
+                                <th>Are Receipts Ok :</th>
+                                <td><?php echo $data['are receipts ok?']; ?></td>
+                                
+                            </tr>
+                            <tr>
+                                <th>Is Narration Ok?  :</th>
+                                <td><?php echo $data['is narration ok?']; ?></td>
+                                <th>Is Account Changed? :</th>
+                                <td><?php echo $data['is account changed?']; ?></td>
+                                
                             </tr>
 
                             <tr>
-                                <th>Are Assets Included :</th>
-                                <td><?php echo $data['are_assets_included']; ?></td>
-                                <th>Is Cert. of Honour OK :</th>
-                                <td><?php echo $data['is_cert_of_honour_ok']; ?></td>
+                                <th>Are Signatures OK? :</th>
+                                <td><?php echo $data['are signatures ok?']; ?></td>
                             </tr>
+
+                            <tr>
+                                <th>Are Assets Included? :</th>
+                                <td><?php echo $data['Are assets included?']; ?></td>
+                                <th>Is Cert. of Honour OK? :</th>
+                                <td><?php echo $data['is cert. of honour ok?']; ?></td>
+                            </tr>
+
+                            <tr>
+                                <th>Cacu List :</th>
+                                <td><?php echo $data['cacu list']; ?></td>
+                                <th>Int Audit List :</th>
+                                <td><?php echo $data['int audit list']; ?></td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Fixed Asset List :</th>
+                                <td><?php echo $data['fixed asset list']; ?></td>
+                                <th>Final Acc List :</th>
+                                <td><?php echo $data['final acct list']; ?></td>
+                            </tr>
+
                             <tr>
                                 <th>Is Voucher Paid in Installments :</th>
-                                <td><?php echo $data['is_voucher_paid_in_insttalments']; ?></td>
+                                <td><?php echo $data['is voucher paid in instalments?']; ?></td>
                                 <th>Is Voucher Fully Paid :</th>
-                                <td><?php echo $data['is_voucher_fully_paid']; ?></td>
+                                <td><?php echo $data['is voucher fully paid?']; ?></td>
                             </tr>
                             <tr>
                                 <th>Voucher Payment Outstanding :</th>
-                                <td><?php echo $data['voucher_payment_outstanding']; ?></td>
+                                <td><?php echo $data['voucher payment outstanding']; ?></td>
                                 <th>Voucher Payment Full :</th>
-                                <td><?php echo $data['voucher_payment_full']; ?></td>
+                                <td><?php echo $data['voucher payment paid in full']; ?></td>
                             </tr>
                             <tr>
                                 <th>Voucher To Copy List :</th>
-                                <td><?php echo $data['voucher_to_copy_list']; ?></td>
+                                <td><?php echo $data['voucher to copy list']; ?></td>
                             </tr>
                             <tr>
                                 <th>Are Receipts Stamped :</th>
-                                <td><?php echo $data['are_receipts_stamped']; ?></td>
+                                <td><?php echo $data['Are receipts stamped?']; ?></td>
                             </tr>
                             <tr>
                                 <th>Is Voucher Retired :</th>
-                                <td><?php echo $data['is_voucher_retired']; ?></td>
+                                <td><?php echo $data['is voucher retired?']; ?></td>
                             </tr>
                         </table>
 

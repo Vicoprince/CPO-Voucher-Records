@@ -18,7 +18,7 @@
 <body>
     <div class="navbar">
         <div class="logo-text">
-            <a href="../home.php"><h3>FMC_DB</h3></a>
+            <a href="../Home.php"><h3>FMC_DB</h3></a>
         </div>
         <div class="nav-link">
             <ul>

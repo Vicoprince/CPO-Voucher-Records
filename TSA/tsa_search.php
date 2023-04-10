@@ -93,8 +93,8 @@
                             $SVoucher = $_POST["SVoucher"];
 
                             $sqlsearch = "SELECT * FROM `tsa` 
-                            WHERE (Beneficiary = '$SBeneficiary') OR (Amount = '$SAmount')
-                            OR (treasury_no = '$STreasury') OR (voucher_no = '$SVoucher')";
+                            WHERE (BENEFICIARY = '$SBeneficiary') OR (AMOUNT = '$SAmount')
+                            OR (`treasury no` = '$STreasury') OR (`voucher no` = '$SVoucher')";
 
                             $searchresult = mysqli_query($connection,$sqlsearch);
                             
@@ -113,11 +113,11 @@
                                 <tbody>
                                     <tr>
                                         <td><?php echo $data['id']; ?></td>
-                                        <td><?php echo $data['Beneficiary']; ?></td>
-                                        <td><?php echo $data['Amount']; ?></td>
-                                        <td><?php echo $data['treasury_no']; ?></td>
-                                        <td><?php echo $data['voucher_no']; ?></td>
-                                        <td colspan= 3><a href="tsa-info.php?id=<?php echo $data['id']; ?>"><button class="action-view">View</button></a> / <a href="tsa_update.php?id=<?php echo $data['id']; ?>"><button class="action-update">Update</button></a> / <a href=""><button class="action-delete">Delete</button></a></td>
+                                        <td><?php echo $data['BENEFICIARY']; ?></td>
+                                        <td><?php echo $data['AMOUNT']; ?></td>
+                                        <td><?php echo $data['treasury no']; ?></td>
+                                        <td><?php echo $data['voucher no']; ?></td>
+                                        <td colspan= 3><a href="tsa-info.php?id=<?php echo $data['id']; ?>"><button class="action-view">View</button></a> / <a href="tsa_update.php?id=<?php echo $data['id']; ?>"><button class="action-update">Update</button></a> / <a href="tsa-delete.php?id=<?php echo $data['id']; ?>"><button class="action-delete">Delete</button></a></td>
                                     </tr>
                                 </tbody>
 

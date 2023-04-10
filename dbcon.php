@@ -2,7 +2,7 @@
     $servername="localhost";
     $username="root";
     $password="";
-    $dbname="fmc_db";
+    $dbname="fmc_voucher_db";
     $connection=mysqli_connect($servername,$username,$password,$dbname);
 
     if (!$connection)

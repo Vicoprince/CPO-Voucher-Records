@@ -11,15 +11,16 @@ body {
 
 .container {
   display: flex;
+  width: 100%;
 }
 
 .sidenav {
-  height: 100vh;
+  position: sticky;
+  height: 2550px;
   background: #000;
   width: 15%;
   top: 0;
   left: 0;
-  position: sticky;
 }
 
 .sidenav-header {
@@ -122,7 +123,7 @@ h4:hover {
 .form-container {
   background: #fff;
   margin-top: 40px;
-  height: 1895px;
+  height: 2400px;
   padding: 20px 20px;
 }
 

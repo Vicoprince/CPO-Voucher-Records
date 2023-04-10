@@ -14,7 +14,7 @@ body {
 }
 
 .sidenav {
-  height: 100vh;
+  height: 2450px;
   background: #000;
   width: 15%;
   top: 0;
@@ -92,7 +92,7 @@ h4:hover {
 .form-container {
   background: #fff;
   margin-top: 40px;
-  height: 1850px;
+  height: 2300px;
   padding: 20px 20px;
 }
 

@@ -13,26 +13,31 @@
         $updatequeryresult = mysqli_query($connection, $updatequery);
 
         while ($updateresult = mysqli_fetch_array($updatequeryresult)) {
-            $Beneficiary = $updateresult['Beneficiary'];
-            $Amount = $updateresult['Amount'];
-            $Treasury_no = $updateresult['treasury_no'];
-            $Voucher_no = $updateresult['voucher_no'];
-            $Receipt_no = $updateresult['receipt_no'];
-            $Are_receipts_OK = $updateresult['are_receipts_ok'];
-            $is_narration_ok = $updateresult['is_narration_ok'];
-            $is_account_changed = $updateresult['is_account_changed'];
-            $batch_no = $updateresult['Batch_no'];
-            $transaction_type = $updateresult['transaction_type'];
-            $are_signatures_ok = $updateresult['are_signatures_ok'];
-            $are_assets_included = $updateresult['are_assets_included'];
-            $is_cert_of_honour_ok = $updateresult['is_cert_of_honour_ok'];
-            $is_voucher_paid_in_installments = $updateresult['is_voucher_paid_in_insttalments'];
-            $is_voucher_fully_paid = $updateresult['is_voucher_fully_paid'];
-            $voucher_payment_outstanding = $updateresult['voucher_payment_outstanding'];
-            $voucher_payment_full = $updateresult['voucher_payment_full'];
-            $voucher_to_copy_list = $updateresult['voucher_to_copy_list'];
-            $are_receipts_stamped = $updateresult['are_receipts_stamped'];
-            $is_voucher_retired = $updateresult['is_voucher_retired'];
+            $DATE_IN = $updateresult['DATE IN'];
+            $Beneficiary = $updateresult['BENEFICIARY'];
+            $Amount = $updateresult['AMOUNT'];
+            $Treasury_no = $updateresult['treasury no'];
+            $Voucher_no = $updateresult['voucher no'];
+            $Are_receipts_OK = $updateresult['are receipts ok?'];
+            $is_narration_ok = $updateresult['is narration ok?'];
+            $is_account_changed = $updateresult['is account changed?'];
+            $batch_no = $updateresult['Batch no'];
+            $payment_date = $updateresult['payment date'];
+            $transaction_type = $updateresult['transaction type'];
+            $are_signatures_ok = $updateresult['are signatures ok?'];
+            $are_assets_included = $updateresult['Are assets included?'];
+            $is_cert_of_honour_ok = $updateresult['is cert. of honour ok?'];
+            $cacu_list = $updateresult['cacu list'];
+            $int_audit_list = $updateresult['int audit list'];
+            $fixed_asset_list = $updateresult['fixed asset list'];
+            $final_acct_list = $updateresult['final acct list'];
+            $is_voucher_paid_in_installments = $updateresult['is voucher paid in instalments?'];
+            $is_voucher_fully_paid = $updateresult['is voucher fully paid?'];
+            $voucher_payment_outstanding = $updateresult['voucher payment outstanding'];
+            $voucher_payment_full = $updateresult['voucher payment paid in full'];
+            $voucher_to_copy_list = $updateresult['voucher to copy list'];
+            $are_receipts_stamped = $updateresult['Are receipts stamped?'];
+            $is_voucher_retired = $updateresult['is voucher retired?'];
         }
     }
 
@@ -81,6 +86,11 @@
             <div class="form-container">
                 <form action="" method="POST">
                     <div class="input-group">
+                        <label for="Date In">Date In</label><br />
+                        <input type="text" name="Udate" value="<?php echo $DATE_IN; ?>">
+                    </div>
+
+                    <div class="input-group">
                         <label for="Beneficiary">Beneficiary</label><br />
                         <input type="text" name="Ubeneficiary" value="<?php echo $Beneficiary; ?>">
                     </div>
@@ -101,8 +111,8 @@
                     </div>
 
                     <div class="input-group">
-                        <label for="Reciept Number">Receipt Number</label><br />
-                        <input type="text" name="Urnum" value="<?php echo $Receipt_no; ?>">
+                        <label for="Payment Date">Payment Date</label><br />
+                        <input type="text" name="Upayment_date" value="<?php echo $payment_date; ?>">
                     </div>
                     
                     <div class="input-group">
@@ -117,7 +127,7 @@
 
                     <div class="input-group">
                         <label for="Is Account Changed">Is Account Changed</label><br />
-                        <input type="text" name="Uis_amount_changed" value="<?php echo $is_account_changed ?>">
+                        <input type="text" name="Uis_account_changed" value="<?php echo $is_account_changed ?>">
                     </div>
 
                     <div class="input-group">
@@ -143,6 +153,23 @@
                     <div class="input-group">
                         <label for="Is Cert. of Honour OK">Is Cert. of Honour OK</label><br />
                         <input type="text" name="Uis_cert_honour" value="<?php echo $is_cert_of_honour_ok; ?>">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Cacu List">Cacu List</label><br />
+                        <input type="text" name="Ucacu_list" value="<?php echo $cacu_list; ?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="Int Audit List">Int Audit List</label><br />
+                        <input type="text" name="Uint_audit_list" value="<?php echo $int_audit_list; ?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="Fixed Asset List">Fixed Asset List</label><br />
+                        <input type="text" name="Ufixed_asset_list" value="<?php echo $fixed_asset_list; ?>">
+                    </div>
+                    <div class="input-group">
+                        <label for="Final Acct List">Final Acct List</label><br />
+                        <input type="text" name="Ufinal_acct_list" value="<?php echo $final_acct_list; ?>">
                     </div>
 
                     <div class="input-group">
@@ -203,20 +230,26 @@
     // $id = $_SESSION['id'];
 
     if (isset($_POST['update'])) {
-        $id = $_SESSION['uid'];
+        // $id = $_POST['id'];
+        $id = $_GET['id'];
+        $Udate = $_POST['Udate'];
         $Ubeneficiary = $_POST['Ubeneficiary'];
         $Uamount = $_POST['Uamount'];
         $Utnum = $_POST['Utnum'];
         $Uvnum = $_POST['Uvnum'];
-        $Urnum = $_POST['Urnum'];
+        $Upayment_date = $_POST['Upayment_date'];
         $Uare_receipts_ok = $_POST['Uare_receipts_ok'];
         $Uis_narration_ok = $_POST['Uis_narration_ok'];
-        $Uis_amount_changed = $_POST['Uis_amount_changed'];
+        $Uis_account_changed = $_POST['Uis_account_changed'];
         $Ubatch_no = $_POST['Ubatch_no'];
         $Utransaction_type = $_POST['Utransaction_type'];
         $Uare_signatures_ok = $_POST['Uare_signatures_ok'];
         $Uare_assets_included = $_POST['Uare_assets_included'];
         $Uis_cert_honour = $_POST['Uis_cert_honour'];
+        $Ucacu_list = $_POST['Ucacu_list'];
+        $Uint_audit_list = $_POST['Uint_audit_list'];
+        $Ufixed_asset_list = $_POST['Ufixed_asset_list'];
+        $Ufinal_acct_list = $_POST['Ufinal_acct_list'];
         $Uvoucher_instalment = $_POST['Uvoucher_instalment'];
         $Uvoucher_outstanding = $_POST['Uvoucher_outstanding'];
         $Uvoucher_payment_full = $_POST['Uvoucher_payment_full'];
@@ -228,11 +261,21 @@
         // $id= $_SESSION['id'];
 
     
-        $updatequery = "UPDATE `rfa` SET `Beneficiary`= '$Ubeneficiary', `Amount`= '$Uamount',`treasury_no`= '$Utnum',`voucher_no`= '$Uvnum',`receipt_no`= '$Urnum',`are_receipts_ok`= '$Uare_receipts_ok',`is_narration_ok`= '$Uis_narration_ok',`is_account_changed`= '$Uis_amount_changed',`Batch_no`= '$Ubatch_no', `transaction_type`= '$Utransaction_type', `are_signatures_ok`= '$Uare_signatures_ok',`are_assets_included`= '$Uare_assets_included',`is_cert_of_honour_ok`= '$Uis_cert_honour',`is_voucher_paid_in_insttalments`= '$Uvoucher_instalment',`is_voucher_fully_paid`= '$Uvoucher_fully_paid',`voucher_payment_outstanding`= '$Uvoucher_outstanding',`voucher_payment_full`= '$Uvoucher_payment_full',`voucher_to_copy_list`= '$Uvoucher_copy',`are_receipts_stamped`= '$Uare_receipts_stamped',`is_voucher_retired`= '$Uvoucher_retired' WHERE id = '$id'";
+        $updatequery = "UPDATE `rfa` SET `DATE IN`= '$Udate', `BENEFICIARY`= '$Ubeneficiary', `AMOUNT`= '$Uamount',`treasury no`= '$Utnum',`voucher no`= '$Uvnum',`are receipts ok?`= '$Uare_receipts_ok',`is narration ok?`= '$Uis_narration_ok',`is account changed?`= '$Uis_account_changed',`Batch no`= '$Ubatch_no', `transaction type`= '$Utransaction_type',`payment date`= '$Upayment_date', `are signatures ok?`= '$Uare_signatures_ok',`Are assets included?`= '$Uare_assets_included',`is cert. of honour ok?`= '$Uis_cert_honour',`cacu list`= '$Ucacu_list', `int audit list`= '$Uint_audit_list',`fixed asset list`= '$Ufixed_asset_list', `final acct list`= '$Ufinal_acct_list', `is voucher paid in instalments?`= '$Uvoucher_instalment',`is voucher fully paid?`= '$Uvoucher_fully_paid',`voucher payment outstanding`= '$Uvoucher_outstanding',`voucher payment paid in full`= '$Uvoucher_payment_full',`voucher to copy list`= '$Uvoucher_copy',`Are receipts stamped?`= '$Uare_receipts_stamped',`is voucher retired?`= '$Uvoucher_retired' WHERE id = '$id'";
         
-        mysqli_query($connection,$updatequery);
-        echo "<script>alert('Record Updated!');</script>";
+        // mysqli_query($connection,$updatequery);
+        // echo "<script>alert('Record Updated!');</script>";
 
+
+        
+        if (mysqli_query($connection, $updatequery)) {
+            echo "<script>alert('Record Updated!');</script>";
+        } else {
+            echo "Error updating record: " . mysqli_error($connection);
+        }
+
+        // close connection
+        mysqli_close($connection);
 
     
     
