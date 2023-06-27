@@ -9,7 +9,7 @@
 
     if (isset($_GET["id"])) {
         $updateid = $_GET["id"];
-        $updatequery = "SELECT * FROM `rfa` WHERE id = '$updateid' ";
+        $updatequery = "SELECT * FROM `RFA` WHERE id = '$updateid' ";
         $updatequeryresult = mysqli_query($connection, $updatequery);
 
         while ($updateresult = mysqli_fetch_array($updatequeryresult)) {
@@ -261,7 +261,7 @@
         // $id= $_SESSION['id'];
 
     
-        $updatequery = "UPDATE `rfa` SET `DATE IN`= '$Udate', `BENEFICIARY`= '$Ubeneficiary', `AMOUNT`= '$Uamount',`treasury no`= '$Utnum',`voucher no`= '$Uvnum',`are receipts ok?`= '$Uare_receipts_ok',`is narration ok?`= '$Uis_narration_ok',`is account changed?`= '$Uis_account_changed',`Batch no`= '$Ubatch_no', `transaction type`= '$Utransaction_type',`payment date`= '$Upayment_date', `are signatures ok?`= '$Uare_signatures_ok',`Are assets included?`= '$Uare_assets_included',`is cert. of honour ok?`= '$Uis_cert_honour',`cacu list`= '$Ucacu_list', `int audit list`= '$Uint_audit_list',`fixed asset list`= '$Ufixed_asset_list', `final acct list`= '$Ufinal_acct_list', `is voucher paid in instalments?`= '$Uvoucher_instalment',`is voucher fully paid?`= '$Uvoucher_fully_paid',`voucher payment outstanding`= '$Uvoucher_outstanding',`voucher payment paid in full`= '$Uvoucher_payment_full',`voucher to copy list`= '$Uvoucher_copy',`Are receipts stamped?`= '$Uare_receipts_stamped',`is voucher retired?`= '$Uvoucher_retired' WHERE id = '$id'";
+        $updatequery = "UPDATE `RFA` SET `DATE IN`= '$Udate', `BENEFICIARY`= '$Ubeneficiary', `AMOUNT`= '$Uamount',`treasury no`= '$Utnum',`voucher no`= '$Uvnum',`are receipts ok?`= '$Uare_receipts_ok',`is narration ok?`= '$Uis_narration_ok',`is account changed?`= '$Uis_account_changed',`Batch no`= '$Ubatch_no', `transaction type`= '$Utransaction_type',`payment date`= '$Upayment_date', `are signatures ok?`= '$Uare_signatures_ok',`Are assets included?`= '$Uare_assets_included',`is cert. of honour ok?`= '$Uis_cert_honour',`cacu list`= '$Ucacu_list', `int audit list`= '$Uint_audit_list',`fixed asset list`= '$Ufixed_asset_list', `final acct list`= '$Ufinal_acct_list', `is voucher paid in instalments?`= '$Uvoucher_instalment',`is voucher fully paid?`= '$Uvoucher_fully_paid',`voucher payment outstanding`= '$Uvoucher_outstanding',`voucher payment paid in full`= '$Uvoucher_payment_full',`voucher to copy list`= '$Uvoucher_copy',`Are receipts stamped?`= '$Uare_receipts_stamped',`is voucher retired?`= '$Uvoucher_retired' WHERE id = '$id'";
         
         // mysqli_query($connection,$updatequery);
         // echo "<script>alert('Record Updated!');</script>";

@@ -1,26 +1,19 @@
 <?php
-
-    ob_start();
     include_once("dbcon.php");
 
-    $date_in = "";
     $beneficiary = "";
     $amount = "";
     $tnum = "";
     $vnum = "";
-    $transaction_type = "";
-    $batch_no = "";
-    $payment_date = "";
+    $rnum = "";
     $are_receipts_ok = "";
     $is_narration_ok = "";
-    $is_account_changed = "";
+    $is_amount_changed = "";
+    $batch_no = "";
+    $transaction_type = "";
     $are_signatures_ok = "";
     $are_assets_included = "";
     $is_cert_honour = "";
-    $cacu_list = "";
-    $int_audit_list = "";
-    $fixed_asset_list = "";
-    $final_acc_list = "";
     $voucher_instalment = "";
     $voucher_fully_paid = "";
     $voucher_outstanding = "";
@@ -30,24 +23,19 @@
     $voucher_retired = "";
 
     if (isset($_POST['submit'])) {
-        $date_in = $_POST['date_in'];
         $beneficiary = $_POST['beneficiary'];
         $amount = $_POST['amount'];
         $tnum = $_POST['tnum'];
         $vnum = $_POST['vnum'];
-        $transaction_type = $_POST['transaction_type'];
-        $batch_no = $_POST['batch_no'];
-        $payment_date = $_POST['payment_date'];
+        $rnum = $_POST['rnum'];
         $are_receipts_ok = $_POST['are_receipts_ok'];
         $is_narration_ok = $_POST['is_narration_ok'];
-        $is_account_changed = $_POST['is_account_changed'];
+        $is_amount_changed = $_POST['is_amount_changed'];
+        $batch_no = $_POST['batch_no'];
+        $transaction_type = $_POST['transaction_type'];
         $are_signatures_ok = $_POST['are_signatures_ok'];
         $are_assets_included = $_POST['are_assets_included'];
         $is_cert_honour = $_POST['is_cert_honour'];
-        $cacu_list = $_POST['cacu_list'];
-        $int_audit_list = $_POST['int_audit_list'];
-        $fixed_asset_list = $_POST['fixed_asset_list'];
-        $final_acc_list = $_POST['final_acc_list'];
         $voucher_instalment = $_POST['voucher_instalment'];
         $voucher_fully_paid = $_POST['is_voucher_fully_paid'];
         $voucher_outstanding = $_POST['voucher_outstanding'];
@@ -56,14 +44,12 @@
         $are_receipts_stamped = $_POST['are_receipts_stamped'];
         $voucher_retired = $_POST['voucher_retired'];
 
-        $sqlquery = "INSERT INTO `RFA`(`DATE IN`, `BENEFICIARY`, `AMOUNT`, `treasury no`, `voucher no`, `transaction type`, `Batch no`, `payment date`, `are receipts ok?`, `is narration ok?`, `is account changed?`, `are signatures ok?`, `Are assets included?`, `is cert. of honour ok?`, `cacu list`, `int audit list`, `fixed asset list`, `final acct list`, `is voucher paid in instalments?`, `is voucher fully paid?`, `voucher payment outstanding`, `voucher payment paid in full`, `voucher to copy list`, `Are receipts stamped?`, `is voucher retired?`) VALUES ('$date_in','$beneficiary','$amount','$tnum','$vnum','$transaction_type','$batch_no','$payment_date','$are_receipts_ok','$is_narration_ok','$is_account_changed','$are_signatures_ok','$are_assets_included','$is_cert_honour','$cacu_list','$int_audit_list','$fixed_asset_list','$final_acc_list','$voucher_instalment','$voucher_fully_paid','$voucher_outstanding','$voucher_payment_full','$voucher_copy','$are_receipts_stamped','$voucher_retired')";
+        $sqlquery = "INSERT INTO `RFA`(`Beneficiary`, `Amount`, `treasury_no`, `voucher_no`, `receipt_no`, `are_receipts_ok`, `is_narration_ok`, `is_account_changed`, `Batch_no`, `transaction_type`, `are_signatures_ok`, `are_assets_included`, `is_cert_of_honour_ok`, `is_voucher_paid_in_insttalments`, `is_voucher_fully_paid`, `voucher_payment_outstanding`, `voucher_payment_full`, `voucher_to_copy_list`, `are_receipts_stamped`, `is_voucher_retired`) VALUES ('$beneficiary', '$amount', '$tnum', '$vnum', '$rnum', '$are_receipts_ok', '$is_narration_ok', '$is_amount_changed', '$batch_no', '$transaction_type', '$are_signatures_ok', '$are_assets_included', '$is_cert_honour', '$voucher_instalment', '$voucher_fully_paid', '$voucher_outstanding', '$voucher_payment_full', '$voucher_copy', '$are_receipts_stamped', '$voucher_retired')";
 
         if(!mysqli_query($connection,$sqlquery)) {
             die('Error in record insertion'.mysqli_errno($connection));
         }
     }
-
-    ob_flush();
 ?>
 
 
@@ -114,11 +100,6 @@
                 <h1>Voucher Enrollment Form</h1>
                 <form action="" method="POST">
                     <div class="input-group">
-                        <label for="Date In">Date In</label><br />
-                        <input type="text" name="date_in">
-                    </div>
-
-                    <div class="input-group">
                         <label for="Beneficiary">Beneficiary</label><br />
                         <input type="text" name="beneficiary">
                     </div>
@@ -136,6 +117,43 @@
                     <div class="input-group">
                         <label for="Voucher Number">Voucher Number</label><br />
                         <input type="text" name="vnum">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="Reciept Number">Receipt Number</label><br />
+                        <input type="text" name="rnum">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="">Are Reciepts OK</label><br />
+                        <select name="are_receipts_ok">
+                            <option value="">Select Option</option>
+                            <option value="OK">OK</option>
+                            <option value="Delinquent">Delinquent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="">Is Narration OK</label><br />
+                        <select name="is_narration_ok">
+                            <option value="">Select Option</option>
+                            <option value="OK">OK</option>
+                            <option value="Delinquent">Delinquent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="">Is Account Changed</label><br />
+                        <select name="is_amount_changed">
+                            <option value="">Select Option</option>
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </div>
+                    
+                     <div class="input-group">
+                        <label for="">Batch Number</label><br />
+                        <input type="text" name="batch_no" placeholder="Batch Number">
                     </div>
                     
                     <div class="input-group">
@@ -159,44 +177,6 @@
                             <option value="DRF">DRF</option>
                         </select>
                     </div>
-                    
-                    <div class="input-group">
-                        <label for="">Batch Number</label><br />
-                        <input type="text" name="batch_no" placeholder="Batch Number">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="">Payment Date</label><br />
-                        <input type="text" name="payment_date" placeholder="Payment Date">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="">Are Reciepts OK</label><br />
-                        <select name="are_receipts_ok">
-                            <option value="">Select Option</option>
-                            <option value="OK">OK</option>
-                            <option value="Delinquent">Delinquent</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="">Is Narration OK</label><br />
-                        <select name="is_narration_ok">
-                            <option value="">Select Option</option>
-                            <option value="OK">OK</option>
-                            <option value="Delinquent">Delinquent</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="">Is Account Changed</label><br />
-                        <select name="is_account_changed">
-                            <option value="">Select Option</option>
-                            <option value="YES">YES</option>
-                            <option value="NO">NO</option>
-                        </select>
-                    </div>
-                    
 
                     <div class="input-group">
                         <label for="">Are Signatures OK</label><br />
@@ -224,26 +204,6 @@
                             <option value="NO">NO</option>
                             <option value="NIL">NIL</option>
                         </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="Cacu List">Cacu List</label><br />
-                        <input type="text" name="cacu_list">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="Int Audit List">Int Audit List</label><br />
-                        <input type="text" name="int_audit_list">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="Fixed Asset List">Fixed Asset List</label><br />
-                        <input type="text" name="fixed_asset_list">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="Final Acc List">Final Acc List</label><br />
-                        <input type="text" name="final_acc_list">
                     </div>
                     
                     <div class="input-group">
@@ -302,7 +262,7 @@
                         <button type="reset" name="reset">Reset</button>
                         </div>
                 </form>
-        </div>
+            </div>
     </div>
 </body>
 </html>

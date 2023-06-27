@@ -46,23 +46,63 @@
             <div class="form-container">
                 <form action="project-search.php" method="POST">
                     <div class="input-group">
-                        <label for="Beneficiary">Beneficiary</label><br />
-                        <input type="text" name="SBeneficiary" placeholder="Input Beneficiary">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="Amount">Amount</label><br />
-                        <input type="text" name="SAmount" placeholder="Input Amount">
+                        <div>
+                            <label for="Beneficiary">Beneficiary</label><br />
+                            <input type="text" name="SBeneficiary" placeholder="Input Beneficiary">
+                        </div>
+                        <div>
+                            <label for="Amount">Amount</label><br />
+                            <input type="text" name="SAmount" placeholder="Input Amount">
+                        </div>
                     </div>
                     
                     <div class="input-group">
-                        <label for="Treasury Number">Treasury Number</label><br />
-                        <input type="text" name="STreasury" placeholder="Input Treasury_No">
+                        <div>
+                            <label for="Treasury Number">Treasury Number</label><br />
+                            <input type="text" name="STreasury" placeholder="Input Treasury_No">
+                        </div>
+                        <div>
+                            <label for="Voucher Number">Voucher Number</label><br />
+                            <input type="text" name="SVoucher" placeholder="Input Voucher No">
+                        </div>
                     </div>
 
                     <div class="input-group">
-                        <label for="Voucher Number">Voucher Number</label><br />
-                        <input type="text" name="SVoucher" placeholder="Input Voucher No">
+                        <div>
+                            <label for="">Is Voucher Retired</label><br />
+                            <select name="Svoucher_retired">
+                                <option value="">Select Option</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">Are Receipts Stamped</label><br />
+                            <select name="SAre_receipts_stamped">
+                                <option value="">Select Option</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div>
+                            <label for="">Voucher Payment Outstanding</label><br />
+                            <select name="SPayment_outstanding">
+                                <option value="">Select Option</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">Are Receipts Ok</label><br />
+                            <select name="SReceipts_ok">
+                                <option value="">Select Option</option>
+                                <option value="YES">OK</option>
+                                <option value="Delinquent">Delinquent</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="input-group">
@@ -91,10 +131,18 @@
                             $SAmount = $_POST["SAmount"];
                             $STreasury = $_POST["STreasury"];
                             $SVoucher = $_POST["SVoucher"];
+                            $Svoucher_retired = $_POST["Svoucher_retired"];
+                            $SAre_receipts_stamped = $_POST["SAre_receipts_stamped"];
+                            $SPayment_outstanding = $_POST["SPayment_outstanding"];
+                            $SReceipts_ok = $_POST["SReceipts_ok"];
 
-                            $sqlsearch = "SELECT * FROM `project` 
+
+                            $sqlsearch = "SELECT * FROM `PROJECT` 
                             WHERE (BENEFICIARY = '$SBeneficiary') OR (AMOUNT = '$SAmount')
-                            OR (`treasury no` = '$STreasury') OR (`voucher no` = '$SVoucher')";
+                            OR (`treasury no` = '$STreasury') OR (`voucher no` = '$SVoucher')
+                            OR (`is voucher retired?` = '$Svoucher_retired') OR (`Are receipts stamped?` = '$SAre_receipts_stamped')
+                            OR (`voucher payment outstanding` = '$SPayment_outstanding')
+                            OR (`are receipts ok?` = '$SReceipts_ok')";
 
                             $searchresult = mysqli_query($connection,$sqlsearch);
                             

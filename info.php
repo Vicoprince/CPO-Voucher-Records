@@ -67,7 +67,7 @@
                 <?php 
                     include_once("./dbcon.php");
 
-                    $query = "SELECT * FROM `rfa` WHERE `id` = '$id'";
+                    $query = "SELECT * FROM `RFA` WHERE `id` = '$id'";
 
                     $run = mysqli_query($connection,$query);
 
